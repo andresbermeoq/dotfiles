@@ -30,7 +30,7 @@ shell:
 
 scrolling:
   history: 10000
-  multiplier: 4
+  multiplier: 3
 
 # Font configuration
 font:
@@ -51,7 +51,7 @@ font:
     family: JetBrainsMono Nerd Font
     style: Italic
 
-  size: 16
+  size: 18
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -93,6 +93,13 @@ key_bindings:
   # Windows Configuration
   - { key: T,         mods: Command,    action: "CreateNewWindow"                  }
   - { key: W,         mods: Command,    action: "Quit"                  }
+  # Scroll Mode
+  - { key: Up,         mods: Command,    action: "ScrollLineUp"                  }
+  - { key: Down,         mods: Command,    action: "ScrollLineDown"                  }
+  - { key: PageUp,         mods: Command,    action: "ScrollToTop"                  }
+  - { key: PageDown,         mods: Command,    action: "ScrollToBottom"                  }
+  - { key: F,         mods: Command,    action: "SearchForward"                  }
+  - { key: G,         mods: Command,    action: "SearchBackward"                  }
 
   #Copy and paste Settings
   - { key: C,         mods: Command,    action: "Copy"                  }
