@@ -1,0 +1,128 @@
+//---------------------------------------------------------> Editor Configurations
+//FONTS
+{
+    "editor.fontFamily": "Jetbrains Mono",
+    "editor.fontSize": 17,
+    // RULE
+    "editor.rulers": [
+        88
+    ],
+    "editor.colorDecorators": true,
+    "editor.formatOnSave": true,
+    "editor.cursorBlinking": "expand",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+        "source.organizeImports": "explicit",
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.renderWhitespace": "all",
+    // Colors in the indentation
+    // Brackets Colors Active
+    "editor.bracketPairColorization.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.inlineSuggest.enabled": true,
+    //Workbench Configurations
+    "workbench.settings.editor": "json",
+    "workbench.statusBar.visible": true,
+    // Terminal
+    "terminal.integrated.fontWeight": "600",
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1",
+        "PYTHONPATH": "${workspaceFolder}",
+        "MallocNanoZone": "1",
+    },
+    // Workbench Colors
+    //---------------------------------------------------------> Python Configurations
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.bracketPairColorization.enabled": true,
+        "editor.tabSize": 4,
+    },
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.languageServer": "Pylance",
+    "black-formatter.importStrategy": "useBundled",
+    "black-formatter.args": [
+        "--safe",
+        "--line-length=100",
+        "--skip-string-normalization"
+    ],
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.lint.args": [
+        "--line-length=100"
+    ],
+    "ruff.organizeImports": true,
+    // -------------------------------------------------------------------> GIT
+    "git.enableCommitSigning": true,
+    // -------------------------------------------------------------------> RUST
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+    },
+    // -------------------------------------------------------------------> DEBUG
+    "debug.console.fontFamily": "Jetbrains Mono",
+    "debug.console.fontSize": 17,
+
+    "terminal.integrated.inheritEnv": false,
+    "editor.wordWrap": "on",
+    "editor.minimap.maxColumn": 150,
+    "telemetry.telemetryLevel": "off",
+    "editor.detectIndentation": false,
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.minimap.side": "left",
+    "editor.fontLigatures": true,
+    "workbench.startupEditor": "welcomePage",
+    "editor.accessibilitySupport": "off",
+    "editor.guides.bracketPairs": true,
+    "editor.minimap.scale": 1,
+    "editor.tabCompletion": "on",
+    "terminal.external.osxExec": "iTerm.app",
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.insertFinalNewline": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "tabnine.experimentalAutoImports": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.gpuAcceleration": "off",
+    "files.associations": {
+        "*.html": "html"
+    },
+    "workbench.editor.enablePreview": false,
+    "emmet.triggerExpansionOnTab": true,
+    "workbench.editor.languageDetection": true,
+    "diffEditor.codeLens": true,
+    "extensions.ignoreRecommendations": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "terminal.integrated.fontFamily": "'SauceCodePro Nerd Font Mono','Source Code Pro'",
+    "editor.suggest.localityBonus": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnPaste": true,
+    "terminal.integrated.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers",
+        "blocks"
+    ],
+    "gitlens.views.contributors.showAllBranches": true,
+    "gitlens.graph.showRemoteNames": true,
+    "python.analysis.completeFunctionParens": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command"
+    ],
+    "editor.guides.bracketPairsHorizontal": true,
+    "editor.stickyScroll.enabled": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "symbols.hidesExplorerArrows": false,
+    "workbench.productIconTheme": "fluent-icons",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorTheme": "Tokyo Night",
+}
