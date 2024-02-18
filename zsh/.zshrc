@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/andres/.oh-my-zsh"
+export ZSH="/home/andresbermeo/.oh-my-zsh"
 
 # Postgres Path
 export PATH=/Library/PostgreSQL/13/bin:$PATH
@@ -129,7 +129,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # JAVA_HOME
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Alias lsd
 alias ls='lsd'
@@ -147,8 +147,8 @@ alias gf="git fetch"
 
 eval "$(starship init zsh)"
 
-# SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_HG_SHOW=false
@@ -161,18 +161,16 @@ SPACESHIP_XCODE_SHOW_LOCAL=false
 SPACESHIP_SWIFT_SHOW_LOCAL=false
 SPACESHIP_GOLANG_SHOW=false
 SPACESHIP_PHP_SHOW=false
-SPACESHIP_RUST_SHOW=false
+SPACESHIP_RUST_SHOW=true
 SPACESHIP_JULIA_SHOW=false
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_DOCKER_CONTEXT_SHOW=false
 SPACESHIP_AWS_SHOW=true
 SPACESHIP_CONDA_SHOW=false
 SPACESHIP_VENV_SHOW=true
-SPACESHIP_PYENV_SHOW=false
+SPACESHIP_PYTHON_SHOW=true
 SPACESHIP_DOTNET_SHOW=false
 SPACESHIP_EMBER_SHOW=false
-SPACESHIP_KUBECONTEXT_SHOW=false
-SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_JOBS_SHOW=false
@@ -193,6 +191,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-source /Users/andres/.docker/init-zsh.sh || true # Added by Docker Desktop
-export GPG_TTY=$(tty)
+# source /Users/andres/.docker/init-zsh.sh || true # Added by Docker Desktop
 export GPG_TTY=$(tty)
