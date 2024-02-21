@@ -1,0 +1,16 @@
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	deleted = red strike
+	untracked = cyan
+	branch = yellow black bold ul
+[commit]
+	gpgsign = true
+[user]
+	name = andresbermeoq
+	email = andresbermeoq1@gmail.com
+	signingkey = 913521AB3CDD3669
+[gpg]
+	program = /usr/bin/gpg
+[gpg "ssh"]
+	allowedSignersFile = /home/andresbermeo/.ssh/allowed_signers
