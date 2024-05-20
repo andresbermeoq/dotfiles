@@ -12,19 +12,24 @@ return require('packer').startup(function(use)
   }
   -- Treesiter
   use {'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}}
-  -- LSP-Zero
+  -- LSP
   use {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v3.x',
-  requires = {
-    --- Uncomment the two plugins below if you want to manage the language servers from neovim
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'L3MON4D3/LuaSnip'},
+	  'VonHeikemen/lsp-zero.nvim', branch = 'v3.x',
+	  requires = {
+		  'neovim/nvim-lspconfig',
+		  'williamboman/mason.nvim',
+		  'williamboman/mason-lspconfig.nvim',
+	  },
   }
+  -- Autocomplete CMP
+  use {
+	  'hrsh7th/nvim-cmp',
+	  requires = {
+		  'hrsh7th/cmp-nvim-lsp',
+		  'hrsh7th/cmp-path',
+		  'hrsh7th/cmp-buffer',
+		  'hrsh7th/cmp-cmdline',
+		  'L3MON4D3/LuaSnip',
+	  }
   }
 end)
