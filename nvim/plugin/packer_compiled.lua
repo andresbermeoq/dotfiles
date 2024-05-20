@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["telescope-cc.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/telescope-cc.nvim",
+    url = "https://github.com/olacin/telescope-cc.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/tokyonight",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 
