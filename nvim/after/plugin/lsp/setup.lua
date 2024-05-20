@@ -51,6 +51,7 @@ mason_lspconfig.setup({
 		'tsserver',
 		-- Rust
 		'rust_analyzer',
+		'vimls',
 	},
 	automatic_installation = true,
 })
@@ -106,5 +107,8 @@ mason_lspconfig.setup_handlers {
                 },
             },
 		}
-	end
+	end,
+	['vimls'] = function ()
+		lspconfig.vimls.setup{capabilities = capabilities}
+	end,
 }

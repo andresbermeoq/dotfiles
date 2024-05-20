@@ -6,7 +6,22 @@ end
 
 treesitter.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "vim","vue","lua", "vim", "python", "rust", "javascript", "typescript", "java", "dockerfile", "json", "sql" },
+  ensure_installed = {
+        "vim",
+        "vue",
+        "lua",
+        "html",
+        "htmldjango",
+        "css",
+        "python",
+        "rust",
+        "javascript",
+        "typescript",
+        "java",
+        "dockerfile",
+        "json",
+        "sql"
+    },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -15,7 +30,6 @@ treesitter.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
-
   highlight = {
     enable = true,
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -23,4 +37,7 @@ treesitter.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+      enable = true,
+  }
 }
