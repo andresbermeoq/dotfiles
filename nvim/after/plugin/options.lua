@@ -5,11 +5,16 @@ vim.opt.cursorline = true
 
 -- Tabs
 vim.o.expandtab = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.opt.autoindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
--- CMD 
+-- CMD
 vim.o.cmdheight = 2
 
 -- Rule NVIM
 vim.o.ruler = true
+
+-- Indentation
+vim.opt.list = true
+vim.opt.listchars = { space = "." }
