@@ -63,4 +63,6 @@ return require("packer").startup(function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "nvim-tree/nvim-web-devicons", opt = true },
   })
+  -- GIT Blamer
+  use({ "braxtons12/blame_line.nvim" })
 end)

@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["blame_line.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/blame_line.nvim",
+    url = "https://github.com/braxtons12/blame_line.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
