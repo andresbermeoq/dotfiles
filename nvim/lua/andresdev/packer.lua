@@ -11,8 +11,13 @@ return require("packer").startup(function(use)
     tag = "0.1.6",
     requires = { { "nvim-lua/plenary.nvim" } },
   })
+  ------ UI
+  -- Dressing
+  use({ "stevearc/dressing.nvim" })
   -- Treesiter
   use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
+  -- Neo Tree
+  use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
   -- LSP
   use({
     "VonHeikemen/lsp-zero.nvim",

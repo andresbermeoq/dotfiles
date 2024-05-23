@@ -13,7 +13,6 @@ end
 local function create_conventional_commit()
   local actions = require("telescope._extensions.conventional_commits.actions")
   local picker = require("telescope._extensions.conventional_commits.picker")
-  local themes = require("telescope.themes")
 
   -- if you use the picker directly you have to provide your theme manually
   picker({
@@ -33,7 +32,7 @@ telescope.setup({
   extensions = {
     conventional_commits = {
       theme = "dropdown",
-      include_body_and_footer = false,
+      include_body_and_footer = true,
     },
   },
 })
