@@ -15,20 +15,33 @@ dressing.setup({})
 nvim_tree.setup({
   view = {
     width = 35,
-    relativenumber = true,
   },
   renderer = {
     indent_markers = {
       enable = true,
     },
     icons = {
+      webdev_colors = true,
       glyphs = {
         folder = {
           arrow_closed = "", -- arrow when folder is closed
           arrow_open = "", -- arrow when folder is open
         },
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U",
+          deleted = "",
+          ignored = "◌",
+        },
       },
     },
+  },
+  diagnostics = {
+    enable = true,
+    icons = { error = " ", warning = " ", hint = "󰌶 ", info = " " },
   },
   actions = {
     open_file = {
@@ -41,6 +54,8 @@ nvim_tree.setup({
     custom = { ".DS_Store" },
   },
   git = {
+    enable = true,
+    timeout = 500,
     ignore = true,
   },
 })

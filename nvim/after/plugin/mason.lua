@@ -1,5 +1,5 @@
 local status_ok, mason, mason_tool = pcall(function()
-  return require 'mason', require 'mason-tool-installer'
+  return require("mason"), require("mason-tool-installer")
 end)
 
 if not status_ok then
@@ -15,14 +15,15 @@ mason.setup({
       package_installed = "",
       package_pending = "",
       package_uninstalled = "",
-    }
+    },
   },
 })
 
-
 mason_tool.setup({
   ensure_installed = {
-    'stylua',
-    'ruff',
-  }
+    "stylua",
+    "ruff",
+    "eslint_d",
+    "pydocstyle",
+  },
 })

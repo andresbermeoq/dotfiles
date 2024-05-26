@@ -7,7 +7,7 @@ if not status_ok then
 end
 
 local function attached_clients()
-  return "(" .. vim.tbl_count(vim.lsp.buf_get_clients(0)) .. ")"
+  return "(" .. vim.tbl_count(vim.lsp.get_active_clients()) .. ")"
 end
 
 local function cwd()

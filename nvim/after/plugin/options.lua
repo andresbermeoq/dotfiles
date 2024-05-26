@@ -8,6 +8,7 @@ vim.o.expandtab = true
 vim.opt.autoindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.termguicolors = true
 
 -- CMD
 vim.o.cmdheight = 2

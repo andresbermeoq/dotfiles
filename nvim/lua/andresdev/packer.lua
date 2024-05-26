@@ -5,6 +5,8 @@ return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
   -- You can alias plugin names
   use({ "folke/tokyonight.nvim", as = "tokyonight" })
+  -- Which Key
+  use({ "folke/which-key.nvim" })
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
@@ -64,10 +66,21 @@ return require("packer").startup(function(use)
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
   })
+  -- Linters
+  use({ "mfussenegger/nvim-lint" })
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "nvim-tree/nvim-web-devicons", opt = true },
   })
   -- GIT Blamer
   use({ "braxtons12/blame_line.nvim" })
+  -- Git UI
+  use({
+    "kdheepak/lazygit.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
+  -- Noice
+  use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 end)
