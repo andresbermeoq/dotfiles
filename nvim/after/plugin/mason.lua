@@ -22,6 +22,7 @@ mason.setup({
 mason_tool.setup({
   ensure_installed = {
     "stylua",
+    "debugpy",
     "ruff",
     "eslint_d",
     "pydocstyle",

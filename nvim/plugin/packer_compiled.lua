@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["compiler.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/compiler.nvim",
+    url = "https://github.com/Zeioth/compiler.nvim"
+  },
   ["conform.nvim"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/conform.nvim",
@@ -176,6 +181,26 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-lint"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-lint",
@@ -185,6 +210,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-notify"] = {
     loaded = true,
@@ -205,6 +235,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["overseer.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/overseer.nvim",
+    url = "https://github.com/stevearc/overseer.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -230,6 +265,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/tokyonight",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

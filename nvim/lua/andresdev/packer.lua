@@ -83,4 +83,14 @@ return require("packer").startup(function(use)
   })
   -- Noice
   use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
+  -- Compiler
+  use({ "Zeioth/compiler.nvim", requires = { "stevearc/overseer.nvim" } })
+  -- Trouble
+  use({ "folke/trouble.nvim" })
+  -- Debug
+  use("mfussenegger/nvim-dap-python")
+  use({
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
+  })
 end)

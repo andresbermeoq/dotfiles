@@ -60,7 +60,9 @@ mason_lspconfig.setup_handlers({
     })
   end,
   ["pyright"] = function()
-    require("neodev").setup({})
+    require("neodev").setup({
+      library = { plugins = { "nvim-dap-ui" }, types = true },
+    })
     lspconfig.pyright.setup({
       capabilities = capabilities,
     })
