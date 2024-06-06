@@ -88,9 +88,15 @@ return require("packer").startup(function(use)
   -- Trouble
   use({ "folke/trouble.nvim" })
   -- Debug
-  use("mfussenegger/nvim-dap-python")
   use({
     "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
+    requires = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
+      "anuvyklack/hydra.nvim",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+    keys = { "<leader>d", desc = { "Open Debug Menu" } },
   })
 end)
