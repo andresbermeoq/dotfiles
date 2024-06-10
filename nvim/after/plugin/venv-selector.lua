@@ -7,7 +7,7 @@ if not status_ok then
   return
 end
 
-venv_selector.setup({ stay_on_this_version = true })
+venv_selector.setup({})
 
 -- keymaps
-keymap.set("n", "<leader>v", "<cmd>VenvSelect<cr>", { desc = "Open Python Environments." })
+keymap.set("n", "<leader>v", "<CMD>VenvSelect<CR>", { desc = "Open Python Environments." })

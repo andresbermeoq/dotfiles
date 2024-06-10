@@ -87,16 +87,8 @@ return require("packer").startup(function(use)
   use({ "Zeioth/compiler.nvim", requires = { "stevearc/overseer.nvim" } })
   -- Trouble
   use({ "folke/trouble.nvim" })
+  -- Python Plugins
+  -- Environment Selector
+  use({ "linux-cultist/venv-selector.nvim", branch = "regexp" })
   -- Debug
-  use({
-    "rcarriga/nvim-dap-ui",
-    requires = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-      "theHamsta/nvim-dap-virtual-text",
-      "anuvyklack/hydra.nvim",
-      "nvim-telescope/telescope-dap.nvim",
-    },
-    keys = { "<leader>d", desc = { "Open Debug Menu" } },
-  })
 end)

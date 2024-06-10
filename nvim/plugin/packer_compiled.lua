@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?/init.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1707061634/lib/lua/5.1/?.so"
+local package_path_str = "/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/andresbermeo/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
-  ["hydra.nvim"] = {
-    loaded = true,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/hydra.nvim",
-    url = "https://github.com/anuvyklack/hydra.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -186,24 +181,6 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    keys = { { "", "<leader>d" } },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/opt/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-lint"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-lint",
@@ -213,11 +190,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-nio"] = {
-    loaded = true,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/nvim-nio",
-    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-notify"] = {
     loaded = true,
@@ -259,11 +231,6 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/telescope-cc.nvim",
     url = "https://github.com/olacin/telescope-cc.nvim"
   },
-  ["telescope-dap.nvim"] = {
-    loaded = true,
-    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
-    url = "https://github.com/nvim-telescope/telescope-dap.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -279,6 +246,11 @@ _G.packer_plugins = {
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["venv-selector.nvim"] = {
+    loaded = true,
+    path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/venv-selector.nvim",
+    url = "https://github.com/linux-cultist/venv-selector.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/andresbermeo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -292,11 +264,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Keymap lazy-loads
-time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <leader>d <cmd>lua require("packer.load")({'nvim-dap-ui'}, { keys = "<lt>leader>d", prefix = "" }, _G.packer_plugins)<cr>]]
-time([[Defining lazy-load keymaps]], false)
-
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
