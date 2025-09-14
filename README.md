@@ -1,14 +1,14 @@
-#DOTFILES Andres Bermeo
+# DOTFILES Andres Bermeo
+## CI Status
+[![dotfiles-ci](https://github.com/andresbermeoq/dotfiles/actions/workflows/dotfiles-ci.yml/badge.svg?branch=main)](https://github.com/andresbermeoq/dotfiles/actions/workflows/dotfiles-ci.yml)
 
 Configuration ZSH
 Configuration Alacritty
 
-![dotfiles-ci](https://github.com/andresbermeo/dotfiles/actions/workflows/dotfiles-ci.yml/badge.svg)
 
 
-### Dotfiles Integration
-
-## TL;DR
+## Dotfiles Integration
+### TL;DR
 
 ```bash
 git clone <repo> ~/dotfiles
