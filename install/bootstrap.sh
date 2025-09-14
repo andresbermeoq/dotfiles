@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 IFS=$'\n\t'
+
+# Log helper (green)
 log() { printf "\033[1;32m[bootstrap]\033[0m %s\n" "$*"; }
+
+# Error
+trap 'echo -e "\033[1;31m[bootstrap] Error on line $LINENO\033[0m"' ERR
 
 # Define the SUDO user
 if [[ $EUID -eq 0 ]]; then
@@ -25,12 +30,17 @@ ensure_pkg_linux() {
     ${SUDO}apt-get install -y git stow zsh curl ripgrep fzf
 }
 ensure_pkg_macos() {
-    if ! command -v brew > dev/null 2>&1; then
+    if ! command -v brew >/dev/null 2>&1; then
         log "Homebrew not found. Installing..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     brew install git stow zsh curl ripgrep fzf
 }
+
+if [[ "$SKIP_PKGS" -eq 0 && -n "$SUDO" ]] && ! command -v sudo >/dev/null 2>&1; then
+  log "No 'sudo' and not root. In Docker use: DOTFILES_SKIP_PKGS=1 make bootstrap, or execute with root user."
+  exit 1
+fi
 
 if [[ "$SKIP_PKGS" -eq 0 ]]; then
     log "Ensuring required packages are installed..."
@@ -45,6 +55,11 @@ fi
 
 log "Creating structures..."
 mkdir -p "$HOME/.config"
+
+if [[ "$SKIP_PKGS" -eq 1 ]] && ! command -v stow >/dev/null 2>&1; then
+  log "GNU stow not found. Instálalo o ejecuta sin DOTFILES_SKIP_PKGS=1."
+  exit 1
+fi
 
 log "Stowing dotfiles..."
 make link
