@@ -3,6 +3,8 @@
 Configuration ZSH
 Configuration Alacritty
 
+![dotfiles-ci](https://github.com/<TU_USUARIO>/<TU_REPO>/actions/workflows/dotfiles-ci.yml/badge.svg)
+
 
 ### Dotfiles Integration
 

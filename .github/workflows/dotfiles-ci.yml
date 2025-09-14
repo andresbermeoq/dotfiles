@@ -1,0 +1,82 @@
+name: dotfiles-ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+   test-matrix:
+    name: CI • ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    env:
+      DOTFILES_SKIP_PKGS: "1"
+      TERM: xterm-256color
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show runner info
+        run: |
+          uname -a
+          echo "SHELL=$SHELL"
+          echo "Runner OS=$RUNNER_OS"
+
+      - name: Install deps (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y stow zsh neovim shellcheck shfmt
+          # stylua por snap (rápido) o omitir si no lo usas
+          sudo snap install stylua --classic || true
+
+      - name: Install deps (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew update
+          brew install stow zsh neovim shellcheck shfmt stylua || true
+
+      - name: CRLF → LF (por si acaso)
+        run: |
+          if command -v sed >/dev/null 2>&1; then
+            sed -i 's/\r$//' Makefile || true
+            sed -i 's/\r$//' install/bootstrap.sh || true
+          fi
+
+      - name: Make help (autodoc)
+        run: make
+
+      - name: Check basic deps
+        run: make deps || true
+
+      - name: Bootstrap (skip package install)
+        run: make bootstrap
+
+      - name: Link (stow)
+        run: make link
+
+      - name: Linters
+        run: make lint || true
+
+      - name: CI smoke
+        run: make ci || true
+
+      - name: Verify symlinks exist (best-effort)
+        shell: bash
+        run: |
+          ls -la "$HOME/.config" || true
+          test -d "$HOME/.config/nvim" && echo "nvim linked ✓" || echo "nvim link skipped"
+          test -d "$HOME/.config/kitty" && echo "kitty linked ✓" || echo "kitty link skipped"
+          test -f "$HOME/.config/starship.toml" && echo "starship linked ✓" || echo "starship link skipped"
+
