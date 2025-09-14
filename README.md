@@ -4,6 +4,17 @@ Configuration ZSH
 Configuration Alacritty
 
 
+### Dotfiles Integration
+
+## TL;DR
+
+```bash
+git clone <repo> ~/dotfiles
+cd ~/dotfiles
+make bootstrap
+```
+
+
 ### Installation Configuration Neovim
 
 - Install Neovim

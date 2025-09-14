@@ -1,0 +1,5 @@
+brew "git"
+brew "stow"
+brew "zsh"
+brew "ripgrep"
+brew "fzf"

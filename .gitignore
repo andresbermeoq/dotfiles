@@ -1,0 +1,5 @@
+.DS_Store
+
+
+#Neovim (Packer)
+nvim/plugin/packer_compiled.lua
