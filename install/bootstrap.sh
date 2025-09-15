@@ -2,6 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 # Log helper (green)
 log() { printf "\033[1;32m[bootstrap]\033[0m %s\n" "$*"; }
 
@@ -59,6 +60,27 @@ mkdir -p "$HOME/.config"
 if [[ "$SKIP_PKGS" -eq 1 ]] && ! command -v stow >/dev/null 2>&1; then
   log "GNU stow not found. Instálalo o ejecuta sin DOTFILES_SKIP_PKGS=1."
   exit 1
+fi
+
+# ---- OH-MY-ZSH Instalation ------
+if [[ "${DOTFILES_INSTALL_OMZ:-1}" == "1" ]]; then
+  if [[ -f "$REPO_ROOT/install/omz.sh" ]]; then
+    log "Ensuring Oh-My-Zsh is installed..."
+    OMZ_FLAGS_STR="${DOTFILES_OMZ_FLAGS:-c--plugins}"
+    read -r -a OMZ_FLAGS_ARR <<< "$OMZ_FLAGS_STR"
+    if ! bash "$REPO_ROOT/install/omz.sh" "${OMZ_FLAGS_ARR[@]}"; then
+      log "OMZ install skipped/failed (network/policy). Continuing..."
+    fi
+  else
+    log "install/omz.sh not found or not executable; skipping OMZ."
+  fi
+else
+  log "Skipping OMZ install (DOTFILES_INSTALL_OMZ=0)."
+fi
+
+if [[ -f "$HOME/.zshrc" && ! -L "$HOME/.zshrc" && -f "$REPO_ROOT/zsh/.zshrc" ]]; then
+  log "Backing up ~/.zshrc to ~/.zshrc.pre-stow (to avoid Stow conflicts)"
+  mv "$HOME/.zshrc" "$HOME/.zshrc.pre-stow"
 fi
 
 log "Stowing dotfiles..."
