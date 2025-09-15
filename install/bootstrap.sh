@@ -58,7 +58,7 @@ log "Creating structures..."
 mkdir -p "$HOME/.config"
 
 if [[ "$SKIP_PKGS" -eq 1 ]] && ! command -v stow >/dev/null 2>&1; then
-  log "GNU stow not found. Instálalo o ejecuta sin DOTFILES_SKIP_PKGS=1."
+  log "GNU stow not found. Install or execute DOTFILES_SKIP_PKGS=1."
   exit 1
 fi
 
@@ -66,8 +66,8 @@ fi
 if [[ "${DOTFILES_INSTALL_OMZ:-1}" == "1" ]]; then
   if [[ -f "$REPO_ROOT/install/omz.sh" ]]; then
     log "Ensuring Oh-My-Zsh is installed..."
-    OMZ_FLAGS_STR="${DOTFILES_OMZ_FLAGS:-c--plugins}"
-    read -r -a OMZ_FLAGS_ARR <<< "$OMZ_FLAGS_STR"
+    OMZ_FLAGS_STR="${DOTFILES_OMZ_FLAGS:---plugins}"
+    read -r -a OMZ_FLAGS_ARR <<< "${OMZ_FLAGS_STR:-}"
     if ! bash "$REPO_ROOT/install/omz.sh" "${OMZ_FLAGS_ARR[@]}"; then
       log "OMZ install skipped/failed (network/policy). Continuing..."
     fi

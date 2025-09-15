@@ -29,7 +29,6 @@ install_omz() {
     return
   fi
   log "installing Oh-My-Zsh (unattended)…"
-  # evita abrir zsh, cambiar shell y sobreescribir tu .zshrc stoweado
   RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     "" --unattended

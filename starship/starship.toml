@@ -1,7 +1,14 @@
-command_timeout = 500
+"$schema" = "https://starship.rs/config-schema.json"
+
+command_timeout = 1200
+scan_timeout = 50
 palette = "poimandres"
 
-# format = "[:::](bg:bright-mint fg:bg)$directory($git_branch) $git_metrics\n$character"
+format = """
+$directory$git_branch$git_status$git_metrics$python$rust$golang
+$character"""
+
+right_format = """$cmd_duration"""
 
 [palettes.poimandres]
 bright-yellow = "#fffac2"
@@ -38,7 +45,6 @@ bg = "#252b37"
 black = "#101010"
 
 [character]
-# For a bold prompt, use (bold #hexcolor). Don't need it with JetBrains Mono
 success_symbol = "[❯](bold lower-mint)"
 error_symbol = "[❯](bold hot-red)"
 vicmd_symbol = "[↔](bold bright-yellow)"
@@ -47,13 +53,17 @@ vicmd_symbol = "[↔](bold bright-yellow)"
 disabled = true
 
 [cmd_duration]
-disabled = true
+min_time = 1200
+format = "⏱ [$duration]($style) "
+style = "bold bright-yellow"
 
 [directory]
 format = "[](bg:focus fg:bright-mint)[ $path ](bg:focus fg:white)[](fg:focus)"
+truncation_length = 3
+truncate_to_repo = true
 
 [git_branch]
-format = "\b[](bg:selection fg:focus)[ $branch ](bg:selection fg:lower-blue)[](fg:selection)"
+format = "[](bg:selection fg:focus)[ $branch ](bg:selection fg:lower-blue)[](fg:selection)"
 
 [git_metrics]
 disabled = false
@@ -62,6 +72,7 @@ deleted_style = "hot-red"
 
 [git_status]
 style = "gray"
+format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [package]
 disabled = true
@@ -74,10 +85,23 @@ format = "[$symbol$version]($style) "
 style = "bold green"
 symbol = '🐍 '
 pyenv_version_name = true
-python_binary= ["py"]
+python_binary = ["py"]
 detect_folders = [".python-version", "pyproject.toml"]
 
 [rust]
 format = "[$symbol$version]($style) "
 symbol = '🦀 '
 style = "bold red"
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_extensions = ["js", "ts", "mjs", "cjs"]
+
+[custom.angular]
+when = ''' test -f package.json && grep -q '"@angular/core"' package.json '''
+command = ''' node -e "try{const p=require('./package.json');const v=(p.dependencies?.['@angular/core']||p.devDependencies?.['@angular/core']||'').replace(/^[^0-9]*/, ''); if(v) console.log('🅰 '+v)}catch(e){}" '''
+style = "bold red"
+format = "[$output]($style) "
