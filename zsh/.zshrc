@@ -46,12 +46,31 @@ fi
 # ----------------------------- NVM Lazy ---------------------------------------
 lazy_nvm() { export NVM_DIR="$HOME/.nvm"; [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"; }
 load-nvmrc() {
-  [[ -f .nvmrc && -r .nvmrc ]] || return
-  command -v nvm >/dev/null || lazy_nvm
-  local want; want="$(<.nvmrc)"; local have; have="$(nvm version)"
-  [[ "$have" == "$want" ]] || { nvm ls "$want" >/dev/null 2>&1 || nvm install "$want"; nvm use "$want" --silent; }
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    command -v nvm >/dev/null || lazy_nvm
+    local want have
+    want="$(<.nvmrc)"
+    have="$(nvm current 2>/dev/null || echo system)"
+    if [[ "$have" != "$want" ]]; then
+      nvm ls "$want" >/dev/null 2>&1 || nvm install "$want"
+      nvm use "$want" --silent
+      echo "🔄 NVM: change to ${have} → $(nvm current) (with .nvmrc in $(pwd))"
+    fi
+  else
+    command -v nvm >/dev/null || return 0
+    local def cur
+    def="$(nvm alias default | awk '{print $3}')"
+    cur="$(nvm current 2>/dev/null || echo system)"
+    if [[ -n "$def" && "$cur" != "$def" ]]; then
+      nvm use default --silent
+    fi
+  fi
 }
-autoload -U add-zsh-hook; add-zsh-hook chpwd load-nvmrc; load-nvmrc
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 
 # ----------------------------- Prompt (Starship) ------------------------------
 command -v starship >/dev/null && eval "$(starship init zsh)"
